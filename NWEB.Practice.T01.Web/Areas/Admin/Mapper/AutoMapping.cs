@@ -15,7 +15,7 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.Mapper
             CreateMap<Flower, FlowerViewModel>();
             CreateMap<Color, ColorViewModel>();
             CreateMap<Category, CategoryViewModel>();
-            CreateMap<Flower, SaleOfViewModel>();
+            //CreateMap<Flower, SaleOfViewModel>();
 
         }
     }

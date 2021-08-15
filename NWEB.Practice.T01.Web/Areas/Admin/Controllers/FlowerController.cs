@@ -22,43 +22,65 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.Controllers
             return View(FlowerBusiness.FindById(id));
         }
 
-        public void LoadDropdown()
+        public void LoadDropdownCategory()
         {
-            var result = FlowerBusiness.GetAll().ToList();
             var cate = CategoryBusiness.GetAll().ToList();
 
             // Tạo SelectList
-            SelectList flowerList = new SelectList(result, "CategoryId", "FlowerName");
             SelectList cateList= new SelectList(cate, "Id", "CategoryName");
             // Set vào ViewBag
-            ViewBag.FlowerList = flowerList;
             ViewBag.CategoryList = cateList;
+        }
+        public void LoadDropdownFlower()
+        {
+            var result = FlowerBusiness.GetAll().ToList();
+            // Tạo SelectList
+            SelectList flowerList = new SelectList(result, "Id", "FlowerName");
+            // Set vào ViewBag
+            ViewBag.FlowerList = flowerList;
+        }
+        public void LoadDropdownColor()
+        {
+            var result = ColorBusiness.GetAll().ToList();
+            // Tạo SelectList
+            SelectList colorList = new SelectList(result, "Id", "ColorName");
+            // Set vào ViewBag
+            ViewBag.ColorList = colorList;
         }
 
         // GET: Admin/Flower/Create
         public ActionResult Create()
         {
+            LoadDropdownColor();
+            LoadDropdownCategory();
             return View();
         }
-        public ActionResult CreateSaleOff()
+        public ActionResult SaleOff()
         {
-            LoadDropdown();
+            LoadDropdownCategory();
+            LoadDropdownFlower();
             return View();
         }
 
         [HttpPost]
-        public ActionResult CreateSaleOff(SaleOfViewModel obj)
+        public ActionResult SaleOff(string categoryName, string flowerName, decimal saleOff)
         {
-            try
-            {
-                // TODO: Add insert logic here
-                FlowerBusiness.CreateSaleOff(obj);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            
+                var flowerList = FlowerBusiness.GetByFlowerAndCategoryName(categoryName, flowerName);
+                if (flowerList != null)
+                {
+                    foreach (var flower in flowerList)
+                    {
+                        if (flower.SalePrice > 0)
+                        {
+                            flower.SalePrice = flower.Price * (1 - saleOff * 0.01m);
+                        }
+                        FlowerBusiness.Edit(flower);
+                    }
+                    return RedirectToAction("Index");
+                }
+
+                return HttpNotFound();
         }
         // POST: Admin/Flower/Create
         [HttpPost]
@@ -79,6 +101,8 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.Controllers
         // GET: Admin/Flower/Edit/5
         public ActionResult Edit(int id)
         {
+            LoadDropdownCategory();
+            LoadDropdownColor();
             return View(FlowerBusiness.FindById(id));
         }
 

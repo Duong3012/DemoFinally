@@ -27,13 +27,13 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.Business
             var a = AutoMapper.Mapper.Map<FlowerViewModel, Flower>(obj);
             return flowerService.Add(a);
         }
-        public static bool CreateSaleOff(SaleOfViewModel obj)
-        {
+        //public static bool CreateSaleOff(FlowerViewModel obj)
+        //{
 
-            var a = AutoMapper.Mapper.Map<SaleOfViewModel, Flower>(obj);
-            a.SalePrice = a.Price - (a.Price) * obj.SaleOff;
-            return flowerService.Add(a);
-        }
+        //    var a = AutoMapper.Mapper.Map<FlowerViewModel, Flower>(obj);
+        //    a.SalePrice = a.Price - (a.Price) * obj.SalePrice;
+        //    return flowerService.Add(a);
+        //}
 
         public static bool Edit(FlowerViewModel obj)
         {
@@ -43,6 +43,14 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.Business
         public static bool Delete(int id)
         {
             return flowerService.Delete(id);
+        }
+
+        public static List<FlowerViewModel> GetByFlowerAndCategoryName(string categoryName, string flowerName)
+        {
+
+            return AutoMapper.Mapper
+                .Map<IEnumerable<FlowerViewModel>>(flowerService.GetByCategoryAndFlowerName(categoryName, flowerName))
+                .ToList();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace NWEB.Practice.T01.DataAccessLayer.Repository
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly FlowerShopDbContext _db;
-        private readonly DbSet<T> _dbSet;
+        protected readonly DbSet<T> _dbSet;
 
         public GenericRepository()
         {

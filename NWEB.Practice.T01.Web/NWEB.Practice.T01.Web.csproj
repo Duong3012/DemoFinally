@@ -188,7 +188,6 @@
     <Compile Include="Areas\Admin\ViewModel\CategoryViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModel\ColorViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModel\FlowerViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModel\SaleOfViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -454,6 +453,7 @@
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Flower\CreateSaleOff.cshtml" />
+    <Content Include="Areas\Admin\Views\Flower\SaleOff.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -503,6 +503,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

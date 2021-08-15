@@ -9,6 +9,6 @@ namespace NWEB.Practice.T01.DataAccessLayer.Repository.Interface
 {
     public interface IFlowerRepository : IGenericRepository<Flower>
     {
-        
+        List<Flower> GetByCategoryAndFlowerName(string categoryName, string flowerName);
     }
 }

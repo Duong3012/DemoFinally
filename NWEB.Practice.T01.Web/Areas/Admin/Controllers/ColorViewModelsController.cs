@@ -48,7 +48,7 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ColorName")] ColorViewModel colorViewModel)
+        public ActionResult Create(ColorViewModel colorViewModel)
         {
             if (ModelState.IsValid)
             {
