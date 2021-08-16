@@ -13,9 +13,11 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.Mapper
         public AutoMapping()
         {
             CreateMap<Flower, FlowerViewModel>();
+            CreateMap<FlowerViewModel, Flower>();
             CreateMap<Color, ColorViewModel>();
+            CreateMap<ColorViewModel, Color>();
             CreateMap<Category, CategoryViewModel>();
-            //CreateMap<Flower, SaleOfViewModel>();
+            CreateMap<CategoryViewModel,Category>();
 
         }
     }

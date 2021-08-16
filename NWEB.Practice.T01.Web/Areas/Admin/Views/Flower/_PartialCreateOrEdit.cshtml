@@ -5,8 +5,8 @@
 <div class="form-group">
     @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+        @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
     </div>
 </div>
 
@@ -37,7 +37,13 @@
 <div class="form-group">
     @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+        @* @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
+        @Html.HiddenFor(model => model.Image)
+        @if (Model != null && Model.Image != null)
+        {
+            <img src="@Model.Image" height="100" width="100"/>
+        }
+        <input type="file" id="Image" name="Image" />
         @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
     </div>
 </div>

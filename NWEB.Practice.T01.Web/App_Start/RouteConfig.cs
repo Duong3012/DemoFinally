@@ -14,17 +14,17 @@ namespace NWEB.Practice.T01.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "SaleOff",
-                url: "Flower/{categoryName}/{flowerName}/{saleOff}",
-                new {controller = "Flower", action = "SaleOff"},
-                new {saleOff = @"\d"}
-            );
+            //routes.MapRoute(
+            //    name: "SaleOff",
+            //    url: "Flower/{categoryName}/{flowerName}/{saleOff}",
+            //    new {controller = "Flower", action = "SaleOff"},
+            //    new {saleOff = @"\d"}
+            //);
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Flowers", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

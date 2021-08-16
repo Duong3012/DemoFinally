@@ -185,10 +185,13 @@
     <Compile Include="Areas\Admin\Controllers\ColorViewModelsController.cs" />
     <Compile Include="Areas\Admin\Controllers\FlowerController.cs" />
     <Compile Include="Areas\Admin\Mapper\AutoMapping.cs" />
+    <Compile Include="Areas\Admin\ViewModel\CategoryFlowerViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModel\CategoryViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModel\ColorViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModel\FlowerViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\FlowersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Extension\Helper.cs" />
@@ -288,6 +291,7 @@
     <Content Include="Areas\Admin\Content\vendor\font-awesome\HELP-US-OUT.txt" />
     <Content Include="Areas\Admin\Content\vendor\jquery\jquery.js" />
     <Content Include="Areas\Admin\Content\vendor\jquery\jquery.min.js" />
+    <Content Include="Areas\Admin\Content\vendor\jquery\ValidateForm.js" />
     <Content Include="Areas\Admin\Content\vendor\metisMenu\metisMenu.css" />
     <Content Include="Areas\Admin\Content\vendor\metisMenu\metisMenu.js" />
     <Content Include="Areas\Admin\Content\vendor\metisMenu\metisMenu.min.css" />
@@ -304,7 +308,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -452,7 +458,6 @@
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Flower\CreateSaleOff.cshtml" />
     <Content Include="Areas\Admin\Views\Flower\SaleOff.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -504,9 +509,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutClient.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\_PartialCategory.cshtml" />
+    <Content Include="Views\Flowers\Index.cshtml" />
+    <Content Include="Views\Flowers\GetAllFlowerById.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Content\ImageFlower\" />
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>

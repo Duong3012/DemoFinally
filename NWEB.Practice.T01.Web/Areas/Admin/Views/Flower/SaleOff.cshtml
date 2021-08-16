@@ -1,71 +1,67 @@
-﻿@model NWEB.Practice.T01.Web.Areas.Admin.ViewModel.FlowerViewModel
-
+﻿@model NWEB.Practice.T01.Web.Areas.Admin.ViewModel.CategoryFlowerViewModel
 @{
     ViewBag.Title = "SaleOff";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>SaleOff</h2>
-
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("SaleOff", "Flower", FormMethod.Post, new { @id = "FormSaleOff" }))
 {
     @Html.AntiForgeryToken()
-    
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-horizontal">
-        <h4>FlowerViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-            </div>
+            @if (ViewBag.CountryList != null)
+            {
+                <div class="col-md-10">
+                    
+                     @Html.DropDownListFor(model => model.CategoryId, ViewBag.CountryList as SelectList, "--Select Country--", new { @class = "form-control" })
+                </div>
+            }
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.FlowerName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Id", (IEnumerable<SelectListItem>)ViewBag.FlowerList, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.FlowerName, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.FlowerName, new SelectList(" "), "--Select State--", new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SalePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SaleOff, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SalePrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SalePrice, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.SaleOff, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SaleOff, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
-@Html.ActionLink(
-     "Sale", 
-     "SaleOff", 
-     "Flower", 
-     new
-     {
-         @categoryName = Model.Category.CategoryName,
-         flowerName = Model.FlowerName,
-         saleOff = Model.SalePrice
-     }, null)
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
+                @Html.ActionLink("Back to List", "Index")
+
             </div>
         </div>
+
     </div>
 }
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#CategoryId").change(function () {
+            $.get("../Flower/GetStateList",
+                { CategoryId: $("#CategoryId").val() },
+                function (data) {
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                    $("#FlowerName").empty();
+                    $("#FlowerName").append("<option value=''>" + "--Select State1--" + "</option>");
+                    $.each(data,
+                        function (index, row) {
+                            $("#FlowerName").append("<option value='" + row.FlowerName + "'>" + row.FlowerName + "</option>")
+                        });
+                });
+        });
+    });
+</script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Areas/Admin/Content/vendor/jquery/ValidateForm.js"></script>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

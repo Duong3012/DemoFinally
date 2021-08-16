@@ -4,27 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    
+
 </head>
 <body>
 <div class="wrapper">
-    <header>
-        <div class="row">
-            <div class="col-md-2">
-                <img src="#" alt="Alternate Text" height="150" width="150"/>
-                <span>Flower Shop</span>
-            </div>
-            <div class="col-md-10">
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
+    <div class="row header">
+        <div class="col-md-3">
+            <img src="~/Content/Images/Logo.png" class="anh" alt="Alternate Text" height="70" width="70"/>
+            <span class="Title-Logo"><a href="#">Flower Shop</a></span>
         </div>
-    </header>
-    <div class="container-fluid">
-
+        <div class="col-md-9">
+            @*@Html.Action("GetAllCategory", "Categories")*@
+        </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
 </div>
 </body>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link href="~/Content/Styles.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </html>

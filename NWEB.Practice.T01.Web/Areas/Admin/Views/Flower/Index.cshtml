@@ -57,7 +57,8 @@
             @Html.DisplayFor(modelItem => item.ColorId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            @*@Html.DisplayFor(modelItem => item.Image)*@
+            <img src="@item.Image" width="50" height="50" alt="anh khong hien thi" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)

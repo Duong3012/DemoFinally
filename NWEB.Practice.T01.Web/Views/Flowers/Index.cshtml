@@ -1,0 +1,32 @@
+﻿@model IEnumerable<NWEB.Practice.T01.Core.Models.Flower>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+<link href="~/Content/Styles.css" rel="stylesheet" />
+@foreach (var item in Model)
+{
+
+    <div class="col-md-3 item-image">
+        <p>
+            <img src="@item.Image" height="200" width="250" />
+        </p>
+        <p class="text-center Flower_Name">
+            @Html.DisplayFor(modelItem => item.FlowerName)
+        </p>
+        <div class="row">
+            <div class="col-md-6 color-price">
+                @Html.DisplayFor(modelItem => item.Price)
+            </div>
+            <div class="col-md-6 color-saleprice">
+                @Html.DisplayFor(modelItem => item.SalePrice)
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#" class="btn btn-danger"><i class="fas fa-cart-plus mr-2"></i>Add to Card </a>
+        </div>
+
+    </div>
+ 
+}

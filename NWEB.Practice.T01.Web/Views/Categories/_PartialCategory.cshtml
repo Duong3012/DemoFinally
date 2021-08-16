@@ -1,0 +1,17 @@
+﻿@model IEnumerable<NWEB.Practice.T01.Core.Models.Category>
+<link href="~/Content/Styles.css" rel="stylesheet" />
+<ul class="navbar-nav">
+    @foreach (var item in Model)
+    {
+        <li class="nav-item">
+            @Html.ActionLink(
+                item.CategoryName,
+                "GetAllFlowerById",
+                "Flowers",
+                new { @CategoryId = item.Id },
+                new { @class = "nav-link px-lg-3 py-3 py-lg-4" })
+        </li>
+    }
+    @*<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="@Url.Action("Contact","Home")">Contact</a></li>*@
+</ul>
+

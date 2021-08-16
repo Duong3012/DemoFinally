@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NWEB.Practice.T01.Core.Models;
 
 namespace NWEB.Practice.T01.Web.Areas.Admin.ViewModel
 {
@@ -17,6 +18,6 @@ namespace NWEB.Practice.T01.Web.Areas.Admin.ViewModel
         [DefaultValue(1)]
         public int Order { get; set; }
         public string Notes { get; set; }
-        public ICollection<FlowerViewModel> Flowers { get; set; }
+        public ICollection<FlowerViewModel> FlowerViewModels { get; set; }
     }
 }

@@ -1,0 +1,47 @@
+﻿.navbar-nav li {
+    display: flex;
+    padding: 13px 6px 6px 6px;
+    margin-left: 20px;
+    font-size: 20px;
+    list-style: none;
+    color: black;
+}
+.navbar-nav li a {
+    color: #202020;
+}
+
+.header {
+    line-height: 70px;
+}
+.Title-Logo {
+    font-family: cursive;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #F08080;
+}
+.Title-Logo a {
+    text-decoration: none;
+    color: #F08080;
+    font-weight: bold;
+}
+.anh {
+    margin-top: -5px; 
+}
+.Flower_Name {
+    font-weight: bold;
+    font-size: 20px;
+}
+.color-price {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+.color-saleprice {
+    text-decoration: line-through;
+    font-size: 18px;
+    opacity: 
+}
+.item-image {
+    margin-bottom: 30px;
+}
